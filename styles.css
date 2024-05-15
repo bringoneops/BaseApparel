@@ -1,145 +1,242 @@
-/* General reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
+/* Reset */
+*, *:before, *:after {
   box-sizing: border-box;
 }
 
-body, html {
-  width: 100%;
-  height: 100%;
-  font-family: 'Josefin Sans', sans-serif;
-  background: hsl(0, 0%, 98%);
+/* Variables */
+:root {
+  --metric-rhythm: 2rem;
+  --metric-interaction-padding: 0.6rem 0.6rem;
 }
 
+/* Base */
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  color: hsl(0, 6%, 24%);
+  height: 100vh;
+  font-family: 'Josefin Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 65% 35%;
+  grid-template-areas:
+    "header side-image"
+    "main side-image"
+    "main side-image"
+    "footer side-image";
+  background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217438/base%20apparel%20coming%20soon/bg-pattern-desktop_ohtovt.svg');
+  background-size: 100% 100%;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  width: 90%;
-  max-width: 1440px;
-  height: 80vh;
-  background: url('./images/background-pattern.png') no-repeat center center; /* Add your background pattern */
-  background-size: cover; /* Ensure the background covers the entire container */
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.content-wrapper {
-  background: white;
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 10px;
-}
-
-header .logo {
-  width: 150px;
-  margin-bottom: 50px;
-}
-
-.content {
-  max-width: 450px;
-}
-
-h1 {
-  font-size: 3rem;
-  color: hsl(0, 36%, 70%);
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-p {
-  color: hsl(0, 6%, 24%);
-  font-size: 1rem;
-  margin-bottom: 30px;
-}
-
-form {
-  display: flex;
-  align-items: center;
-  background: white;
-  border: 1px solid hsl(0, 36%, 70%);
-  border-radius: 50px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-input[type="email"] {
-  flex: 1;
-  padding: 15px 25px;
-  border: none;
-  border-radius: 50px 0 0 50px;
-  font-size: 16px;
-  outline: none;
-}
-
-button {
-  padding: 15px 25px;
-  background-color: hsl(0, 93%, 68%);
-  border: none;
-  border-radius: 0 50px 50px 0;
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-button:hover {
-  background-color: hsl(0, 83%, 78%);
-}
-
-.hero-image {
-  width: 50%;
+/* Utilities */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
   height: auto;
-  object-fit: cover;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap;
+}
+
+.flow {
+  --flow-space: var(--metric-rhythm);
+}
+
+.flow > * + * {
+  margin-top: 1em;
+  margin-top: var(--flow-space);
+}
+
+/* Header */
+header {
+  grid-area: header;
+  height: 100px;
+  padding-top: 3rem;
+  padding-left: 10rem;
+}
+
+/* Side */
+.side-image {
+  grid-area: side-image;
+  background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-desktop_qd7w4w.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Main */
+.main {
+  grid-area: main;
+  max-width: 800px;
+  padding-left: 10rem;
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 4rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  word-spacing: 100vw;
+  line-height: 1.1em;
+}
+
+h2 .heading--pink {
+  font-weight: 300;
+  color: hsl(0, 36%, 70%);
+  letter-spacing: 0.33em;
+}
+
+.main p {
+  color: hsl(0, 36%, 70%);
+  line-height: 1.5em;
+  width: 49ch;
+}
+
+.form {
+  --flow-space: 3.5rem;
+}
+
+.form__control {
+  display: flex;
+  position: relative;
+  width: 48ch;
+  border: 1px solid hsl(0, 36%, 70%);
+  border-radius: 999px;
+  transition: 0.2s;
+  --flow-space: 0.5rem;
+}
+
+.form__control:focus-within {
+  border-width: 2px;
+}
+
+.form__control label {
+  position: absolute;
+  text-transform: capitalize;
+  height: 100%;
+  color: hsl(0, 36%, 70%);
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+  width: 100%;
+  transition: 0.2s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
+
+.form__control input {
+  border: none;
+  background-color: transparent;
+  outline: 0;
+  padding: 20px 0 20px 2rem;
+  flex: auto;
+}
+
+input:focus + label, input:not([value=""]) + label {
+  align-items: flex-start;
+  opacity: 0.75;
+  transform: translateY(-1.5rem);
+}
+
+.button {
+  z-index: 1;
+  background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+  min-width: 7.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.button:hover, .button:focus {
+  filter: brightness(1.05);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  outline: 0;
+}
+
+.button svg {
+  transform: translateY(1px); /* Optical adjustment */
+}
+
+/* ALERT COMPONENT */
+.form__alert {
+  --flow-space: 0;
+}
+
+.alert {
+  --alert-text: hsl(0, 36%, 70%);
+  display: flex;
+  align-items: flex-start;
+  color: var(--alert-text);
+  animation: slide-up 250ms ease;
+}
+
+.alert[data-state='success'] {
+  --alert-text: green;
+}
+
+.alert__icon {
+  font-size: 1.6em;
+  flex-shrink: 0;
+}
+
+.alert__content {
+  padding-left: 2rem;
+}
+
+.alert__content b {
   display: block;
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    height: auto;
+/* ANIMATIONS */
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0.4rem);
   }
-
-  .hero-image {
-    width: 100%;
-    height: 200px; /* Adjust height for better fit on mobile */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .content-wrapper {
-    width: 100%;
-    padding: 20px;
-  }
+/* Footer */
+footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+}
 
-  h1 {
-    font-size: 2rem;
-  }
+footer a {
+  color: hsl(0, 36%, 70%);
+}
 
-  input[type="email"] {
-    width: 100%;
-  }
-
+/* Media Query */
+@media screen and (-ms-high-contrast: active) {
+  input[type],
   button {
-    width: auto;
+    border: 1px solid;
   }
 }
 
-footer .attribution {
-  font-size: 11px;
-  text-align: center;
-  margin-top: 20px;
-}
+@media(max-width: 1000px) {
+  body {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "side-image"
+      "main"
+      "footer";
+  }
 
-footer .attribution a {
-  color: hsl(228, 45%, 44%);
-}
+  .side-image {
+    min-height: 25rem;
+    background-image: url('https://res.cloudinary

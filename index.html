@@ -1,41 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-  <title>Coming Soon | Base Apparel</title>
-  <link rel="stylesheet" href="styles.css">
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="content-wrapper">
-      <header>
-        <img src="./images/logo.svg" alt="Base Apparel logo" class="logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Coming Soon | Base Apparel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header role="banner">
+        <h1 class="visually-hidden">Base Apparel Coming Soon</h1>
+        <a href="/" title="return to the homepage" id="logo">
+          <img
+            src="https://res.cloudinary.com/gb2020/image/upload/v1589217430/base%20apparel%20coming%20soon/logo_homs80.svg"
+            alt="Base Apparel Logo"
+          />
+        </a>
       </header>
-      <div class="content">
-        <h1>We're <br> coming <br> soon</h1>
-        <p>Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals.</p>
-        <form id="subscribe-form">
-          <input type="email" id="email" placeholder="Email Address">
-          <button type="submit">Notify Me</button>
+      <section class="side-image"></section>
+      <main class="[ main ] [ flow ]">
+        <h2>
+          <span class="heading--pink">We're</span>
+          coming soon
+        </h2>
+        <p>
+          Hello fellow shoppers! We're currently building our new fashion store.
+          Add your email below to stay up-to-date with announcements and our
+          launch deals.
+        </p>
+        <form action="/" class="[ form ] [ flow ]" method="POST" id="form">
+          <div class="form__control">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value=""
+              autocapitalize="none"
+              autocomplete="false"
+              autocorrect="off"
+              required
+              pattern="[^@]+@[^\.]+\..+"
+            />
+            <label for="email">Email Address</label>
+            <button class="button">
+              <span class="visually-hidden">Submit email</span>
+              <svg
+                aria-hidden="true"
+                focusable="false"
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="20"
+              >
+                <path
+                  fill="none"
+                  stroke="#FFF"
+                  stroke-width="2"
+                  d="M1 1l8.836 8.836L1 18.671"
+                />
+              </svg>
+            </button>
+            <div class="alert_icon"></div>
+          </div>
         </form>
-      </div>
+        <div aria-atomic="true" role="alert" class="form__alert"></div>
+      </main>
+      <footer>
+        <p>
+          Coded by
+          <a href="https://codepen.io/garyb1" target="_blank">Gary Byrne</a>
+        </p>
+      </footer>
     </div>
-    <aside class="right">
-      <img src="./images/hero-desktop.jpg" alt="Hero Image" class="hero-image">
-    </aside>
-  </div>
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
-</body>
+  </body>
 </html>
