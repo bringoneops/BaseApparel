@@ -5,11 +5,10 @@
   box-sizing: border-box;
 }
 
-body,
-html {
+body, html {
   width: 100%;
   height: 100%;
-  font-family: "Josefin Sans", sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   background: hsl(0, 0%, 98%);
 }
 
@@ -24,10 +23,11 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
   width: 90%;
   max-width: 1440px;
   height: 80vh;
-  background: url("./images/background-pattern.png") no-repeat center center; /* Add your background pattern */
+  background: url('./images/background-pattern.png') no-repeat center center; /* Add your background pattern */
   background-size: cover; /* Ensure the background covers the entire container */
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -56,6 +56,7 @@ h1 {
   font-size: 3rem;
   color: hsl(0, 36%, 70%);
   margin-bottom: 20px;
+  line-height: 1.2;
 }
 
 p {
@@ -99,6 +100,7 @@ button:hover {
 
 .hero-image {
   width: 50%;
+  height: auto;
   object-fit: cover;
   display: block;
 }
