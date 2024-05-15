@@ -26,36 +26,7 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="content-wrapper">
-        <header>
-          <img src="./images/logo.svg" alt="Base Apparel logo" class="logo" />
-        </header>
-        <div class="content">
-          <h1>
-            We're <br />
-            coming <br />
-            soon
-          </h1>
-          <p>
-            Hello fellow shoppers! We're currently building our new fashion
-            store. Add your email below to stay up-to-date with announcements
-            and our launch deals.
-          </p>
-          <form id="subscribe-form">
-            <input type="email" id="email" placeholder="Email Address" />
-            <button type="submit">Notify Me</button>
-          </form>
-        </div>
-      </div>
-      <aside class="right">
-        <img
-          src="./images/hero-desktop.jpg"
-          alt="Hero Image"
-          class="hero-image"
-        />
-      </aside>
-    </div>
+    <div class="container" id="root"></div>
     <footer>
       <p class="attribution">
         Challenge by
@@ -64,5 +35,101 @@
         >. Coded by <a href="#">Your Name Here</a>.
       </p>
     </footer>
+
+    <script>
+      const structure = [
+        {
+          tag: "div",
+          attributes: { class: "content-wrapper" },
+          children: [
+            {
+              tag: "header",
+              children: [
+                {
+                  tag: "img",
+                  attributes: {
+                    src: "./images/logo.svg",
+                    alt: "Base Apparel logo",
+                    class: "logo"
+                  }
+                }
+              ]
+            },
+            {
+              tag: "div",
+              attributes: { class: "content" },
+              children: [
+                {
+                  tag: "h1",
+                  children: ["We're ", "coming ", "soon"]
+                },
+                {
+                  tag: "p",
+                  children: [
+                    "Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals."
+                  ]
+                },
+                {
+                  tag: "form",
+                  attributes: { id: "subscribe-form" },
+                  children: [
+                    {
+                      tag: "input",
+                      attributes: {
+                        type: "email",
+                        id: "email",
+                        placeholder: "Email Address"
+                      }
+                    },
+                    {
+                      tag: "button",
+                      attributes: { type: "submit" },
+                      children: ["Notify Me"]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          tag: "aside",
+          attributes: { class: "right" },
+          children: [
+            {
+              tag: "img",
+              attributes: {
+                src: "./images/hero-desktop.jpg",
+                alt: "Hero Image",
+                class: "hero-image"
+              }
+            }
+          ]
+        }
+      ];
+
+      function createElement(node) {
+        if (typeof node === "string") {
+          return document.createTextNode(node);
+        }
+        const el = document.createElement(node.tag);
+        if (node.attributes) {
+          for (let attr in node.attributes) {
+            el.setAttribute(attr, node.attributes[attr]);
+          }
+        }
+        if (node.children) {
+          node.children.forEach(child => {
+            el.appendChild(createElement(child));
+          });
+        }
+        return el;
+      }
+
+      const root = document.getElementById("root");
+      structure.forEach(node => {
+        root.appendChild(createElement(node));
+      });
+    </script>
   </body>
 </html>
