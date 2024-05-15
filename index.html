@@ -10,7 +10,7 @@
       href="./images/favicon-32x32.png"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600&display=swap"
       rel="stylesheet"
     />
     <title>Coming Soon | Base Apparel</title>
@@ -52,18 +52,23 @@
         margin-bottom: 40px;
       }
       .content h1 {
-        font-size: 48px;
-        line-height: 1.2;
-        margin: 0 0 20px 0;
-        color: #333;
+        font-size: 63.7px;
+        text-transform: uppercase;
+        font-weight: 600;
+        line-height: 68px;
+        letter-spacing: 17.3px;
+        color: hsl(0, 6%, 24%);
       }
       .content h1 span {
         display: block;
       }
       .content p {
         font-size: 16px;
-        color: #777;
-        margin: 20px 0;
+        color: hsl(0, 36%, 70%);
+        padding-right: 215px;
+        line-height: 27px;
+        margin-top: 24px;
+        margin-bottom: 35px;
       }
       form {
         display: flex;
@@ -72,21 +77,27 @@
       }
       input[type="email"] {
         flex: 1;
-        padding: 10px;
+        padding: 17px 30px;
         font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+        border: 1px solid hsl(0, 36%, 70%);
+        border-radius: 30px;
         margin-right: 10px;
+        box-sizing: border-box;
       }
       button[type="submit"] {
-        padding: 10px 20px;
-        font-size: 16px;
-        color: white;
-        background-color: #f25f3a;
         border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        color: white;
+        padding: 19.5px 45px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 30px;
+        background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+        box-shadow: 0 1rem 2rem hsl(0, 93%, 68%, 0.3);
+      }
+      button:hover {
+        background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 80%, 86%));
+        box-shadow: 0 1rem 3rem hsl(0, 93%, 68%, 0.8);
       }
       .hero-image {
         width: 100%;
@@ -100,6 +111,35 @@
       }
       .attribution a {
         color: hsl(228, 45%, 44%);
+      }
+      @media only screen and (max-width: 600px) {
+        .content-wrapper {
+          padding: 30px 20px;
+        }
+        .content h1 {
+          font-size: 43px;
+          line-height: 40px;
+          letter-spacing: 9.3px;
+          text-align: center;
+        }
+        .content p {
+          padding-right: 0;
+          text-align: center;
+          font-size: 14px;
+          line-height: 21px;
+        }
+        input[type="email"] {
+          width: 100%;
+          padding: 11px 30px;
+          margin: 0;
+          font-size: 14px;
+        }
+        button[type="submit"] {
+          padding: 13px 24px;
+          position: relative;
+          top: -47px;
+          left: 84%;
+        }
       }
     </style>
   </head>
