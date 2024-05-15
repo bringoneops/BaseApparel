@@ -24,7 +24,7 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-color: #f2f2f2;
+        background-color: #f7f2ef;
       }
       .container {
         display: flex;
@@ -32,23 +32,33 @@
         max-width: 1200px;
         background-color: white;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        overflow: hidden;
       }
       .content-wrapper {
         flex: 1;
-        padding: 40px;
+        padding: 60px 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       .right {
         flex: 1;
         overflow: hidden;
       }
       .logo {
-        width: 100px;
+        width: 150px;
         height: auto;
+        margin-bottom: 40px;
       }
       .content h1 {
         font-size: 48px;
         line-height: 1.2;
-        margin: 0;
+        margin: 0 0 20px 0;
+        color: #333;
+      }
+      .content h1 span {
+        display: block;
       }
       .content p {
         font-size: 16px;
@@ -58,6 +68,7 @@
       form {
         display: flex;
         align-items: center;
+        margin-top: 20px;
       }
       input[type="email"] {
         flex: 1;
@@ -71,10 +82,11 @@
         padding: 10px 20px;
         font-size: 16px;
         color: white;
-        background-color: hsl(228, 45%, 44%);
+        background-color: #f25f3a;
         border: none;
         border-radius: 5px;
         cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
       .hero-image {
         width: 100%;
@@ -84,6 +96,7 @@
       .attribution {
         font-size: 11px;
         text-align: center;
+        margin-top: 20px;
       }
       .attribution a {
         color: hsl(228, 45%, 44%);
@@ -126,7 +139,11 @@
               children: [
                 {
                   tag: "h1",
-                  children: ["We're ", "coming ", "soon"]
+                  children: [
+                    "We're ",
+                    { tag: "span", children: ["coming"] },
+                    { tag: "span", children: ["soon"] }
+                  ]
                 },
                 {
                   tag: "p",
