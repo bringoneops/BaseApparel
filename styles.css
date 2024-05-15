@@ -1,18 +1,29 @@
-/* Reset */
-*, *:before, *:after {
+/**
+* Reset
+**/
+
+*,
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
-/* Variables */
+/**
+* Variables
+**/
+
 :root {
   --metric-rhythm: 2rem;
   --metric-interaction-padding: 0.6rem 0.6rem;
 }
 
-/* Base */
+/**
+* Base
+**/
+
 body {
   height: 100vh;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   margin: 0;
   padding: 0;
   display: grid;
@@ -22,11 +33,14 @@ body {
     "main side-image"
     "main side-image"
     "footer side-image";
-  background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217438/base%20apparel%20coming%20soon/bg-pattern-desktop_ohtovt.svg');
+  background-image: url("https://res.cloudinary.com/gb2020/image/upload/v1589217438/base%20apparel%20coming%20soon/bg-pattern-desktop_ohtovt.svg");
   background-size: 100% 100%;
 }
 
-/* Utilities */
+/**
+* Utilities
+**/
+
 .visually-hidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -48,7 +62,10 @@ body {
   margin-top: var(--flow-space);
 }
 
-/* Header */
+/**
+* Header
+**/
+
 header {
   grid-area: header;
   height: 100px;
@@ -56,23 +73,25 @@ header {
   padding-left: 10rem;
 }
 
-/* Side */
+/**
+* Side
+**/
+
 .side-image {
   grid-area: side-image;
-  background-image: url('https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-desktop_qd7w4w.jpg');
+  background-image: url("https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-desktop_qd7w4w.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-/* Main */
+/**
+* Main
+**/
+
 .main {
   grid-area: main;
   max-width: 800px;
   padding-left: 10rem;
-  background: white;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -127,8 +146,8 @@ h2 .heading--pink {
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
@@ -141,7 +160,8 @@ input:-webkit-autofill:active {
   flex: auto;
 }
 
-input:focus + label, input:not([value=""]) + label {
+input:focus + label,
+input:not([value=""]) + label {
   align-items: flex-start;
   opacity: 0.75;
   transform: translateY(-1.5rem);
@@ -155,7 +175,8 @@ input:focus + label, input:not([value=""]) + label {
   cursor: pointer;
 }
 
-.button:hover, .button:focus {
+.button:hover,
+.button:focus {
   filter: brightness(1.05);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   color: #fff;
@@ -166,20 +187,24 @@ input:focus + label, input:not([value=""]) + label {
   transform: translateY(1px); /* Optical adjustment */
 }
 
-/* ALERT COMPONENT */
+/**
+ * ALERT COMPONENT
+ */
+
 .form__alert {
   --flow-space: 0;
 }
 
 .alert {
   --alert-text: hsl(0, 36%, 70%);
+
   display: flex;
   align-items: flex-start;
   color: var(--alert-text);
   animation: slide-up 250ms ease;
 }
 
-.alert[data-state='success'] {
+.alert[data-state="success"] {
   --alert-text: green;
 }
 
@@ -196,7 +221,9 @@ input:focus + label, input:not([value=""]) + label {
   display: block;
 }
 
-/* ANIMATIONS */
+/**
+ * ANIMATIONS
+ */
 @keyframes slide-up {
   0% {
     opacity: 0;
@@ -208,7 +235,10 @@ input:focus + label, input:not([value=""]) + label {
   }
 }
 
-/* Footer */
+/**
+* Footer
+**/
+
 footer {
   grid-area: footer;
   display: flex;
@@ -219,7 +249,10 @@ footer a {
   color: hsl(0, 36%, 70%);
 }
 
-/* Media Query */
+/**
+* Media Query
+**/
+
 @media screen and (-ms-high-contrast: active) {
   input[type],
   button {
@@ -227,7 +260,7 @@ footer a {
   }
 }
 
-@media(max-width: 1000px) {
+@media (max-width: 1000px) {
   body {
     grid-template-columns: 100%;
     grid-template-areas:
@@ -239,4 +272,28 @@ footer a {
 
   .side-image {
     min-height: 25rem;
-    background-image: url('https://res.cloudinary
+    background-image: url("https://res.cloudinary.com/gb2020/image/upload/v1589217439/base%20apparel%20coming%20soon/hero-mobile_dv2qh6.jpg");
+  }
+
+  .main,
+  header {
+    padding: 2rem;
+    width: 100vw;
+    margin: 0 auto;
+  }
+
+  .main h2,
+  .main p {
+    text-align: center;
+  }
+
+  .main h2 {
+    font-size: 3rem;
+  }
+
+  .main p,
+  .form__control {
+    width: 98%;
+    margin: 0 auto;
+  }
+}

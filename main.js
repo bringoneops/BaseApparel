@@ -1,38 +1,43 @@
-const inputEl = document.querySelector('#email');
-const btn = document.querySelector('#submit');
-const RegEmail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-const iconErrorEl = document.querySelector('.icon-error');
-const textErrorEl = document.querySelector('.text-error');
-const fromGroupEl = document.querySelector('.form-group');
-let errors = [];
+const renderAlert = (state = 'error') => {
+  const messages = {
+    error: 'Please provide a valid email',
+    success: '<b>Yay! Thank you!</b> We’ve sent a confirmation link to your inbox.'
+  };
 
-btn.addEventListener('click', e => {
-  // remove success class
-  textErrorEl.classList.remove('text-success');
+  return `
+  <div class="alert" data-state="${state}">
+    <p class="alert__content">${messages[state]}</p>
+  </div>
+  `;
+};
 
-  // reset errors
-  errors = [];
-  // prevent default action of form
-  e.preventDefault();
-  // validate email address
-  const email = inputEl.value;
 
-  if (email == '' || email === undefined) {
-    errors.push('Please provide us your email');
-    // show error
-    iconErrorEl.style.display = 'block';
-    textErrorEl.innerText = errors[0];
-  } else if (!email.match(RegEmail)) {
-    errors.push('Please provide us your valid email');
-    // show error icon
-    iconErrorEl.style.display = 'block';
-    textErrorEl.innerText = errors[0];
-  }
+const init = () => {
+  const emailElement = document.querySelector('#email');
+  const formElement = document.querySelector('#form');
+  const alertElement = document.querySelector('[role="alert"]');
+  const validationRegex = new RegExp(
+    emailElement.getAttribute('pattern') || '[^@]+@[^.]+..+',
+    'i'
+  );
+  
+  emailElement.removeAttribute('required');
+  emailElement.removeAttribute('pattern');
+  formElement.setAttribute('novalidate', '');
+  
+  formElement.addEventListener('submit', evt => {
+    evt.preventDefault();
 
-  if (!errors.length > 0) {
-    // hide error icon
-    iconErrorEl.style.display = 'none';
-    textErrorEl.classList.add('text-success');
-    textErrorEl.innerText = 'Thank you for subscribing to our newsletter.';
-  }
-});
+    if (!validationRegex.test(emailElement.value.trim())) {
+      alertElement.innerHTML = renderAlert('error');
+      emailElement.setAttribute('aria-invalid', 'true');
+      return;
+    }
+
+    // POST YOUR FORM WITH AJAX OR WHATNOT THEN RUN THIS
+    formElement.parentElement.removeChild(formElement);
+    alertElement.innerHTML = renderAlert('success');
+  });
+}
+
+init();
