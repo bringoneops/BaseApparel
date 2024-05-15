@@ -27,7 +27,7 @@ body {
   width: 90%;
   max-width: 1440px;
   height: 80vh;
-  background: url("./images/background.webp) no-repeat center center; /* Add your background pattern */
+  background: url("./images/background.webp") no-repeat center center; /* Add your background pattern */
   background-size: cover; /* Ensure the background covers the entire container */
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
