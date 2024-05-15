@@ -3,18 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Coming Soon | Base Apparel</title>
-    <link rel="stylesheet" href="styles.css" />
     <style>
       body {
         font-family: 'Josefin Sans', sans-serif;
@@ -113,6 +106,9 @@
         color: hsl(228, 45%, 44%);
       }
       @media only screen and (max-width: 600px) {
+        .container {
+          flex-direction: column;
+        }
         .content-wrapper {
           padding: 30px 20px;
         }
@@ -139,6 +135,13 @@
           position: relative;
           top: -47px;
           left: 84%;
+        }
+        .hero-image {
+          display: none;
+        }
+        .hero-mobile-image {
+          display: block;
+          width: 100%;
         }
       }
     </style>
@@ -206,7 +209,20 @@
                     {
                       tag: "button",
                       attributes: { type: "submit" },
-                      children: ["Notify Me"]
+                      children: [
+                        {
+                          tag: "img",
+                          attributes: {
+                            src: "./images/icon-arrow.svg",
+                            alt: "Arrow Icon"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      tag: "div",
+                      attributes: { class: "invalid-feedback", "aria-live": "polite" },
+                      children: ["Please provide a valid email"]
                     }
                   ]
                 }
