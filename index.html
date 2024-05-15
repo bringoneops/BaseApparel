@@ -1,273 +1,80 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
-    <title>Coming Soon | Base Apparel</title>
-    <style>
-      body {
-        font-family: 'Josefin Sans', sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f7f2ef;
-      }
-      .container {
-        display: flex;
-        width: 80%;
-        max-width: 1200px;
-        background-color: white;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        overflow: hidden;
-      }
-      .content-wrapper {
-        flex: 1;
-        padding: 60px 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-      .right {
-        flex: 1;
-        overflow: hidden;
-      }
-      .logo {
-        width: 150px;
-        height: auto;
-        margin-bottom: 40px;
-      }
-      .content h1 {
-        font-size: 63.7px;
-        text-transform: uppercase;
-        font-weight: 600;
-        line-height: 68px;
-        letter-spacing: 17.3px;
-        color: hsl(0, 6%, 24%);
-      }
-      .content h1 span {
-        display: block;
-      }
-      .content p {
-        font-size: 16px;
-        color: hsl(0, 36%, 70%);
-        padding-right: 215px;
-        line-height: 27px;
-        margin-top: 24px;
-        margin-bottom: 35px;
-      }
-      form {
-        display: flex;
-        align-items: center;
-        margin-top: 20px;
-      }
-      input[type="email"] {
-        flex: 1;
-        padding: 17px 30px;
-        font-size: 16px;
-        border: 1px solid hsl(0, 36%, 70%);
-        border-radius: 30px;
-        margin-right: 10px;
-        box-sizing: border-box;
-      }
-      button[type="submit"] {
-        border: none;
-        color: white;
-        padding: 19.5px 45px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        border-radius: 30px;
-        background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
-        box-shadow: 0 1rem 2rem hsl(0, 93%, 68%, 0.3);
-      }
-      button:hover {
-        background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 80%, 86%));
-        box-shadow: 0 1rem 3rem hsl(0, 93%, 68%, 0.8);
-      }
-      .hero-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-        margin-top: 20px;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-      @media only screen and (max-width: 600px) {
-        .container {
-          flex-direction: column;
-        }
-        .content-wrapper {
-          padding: 30px 20px;
-        }
-        .content h1 {
-          font-size: 43px;
-          line-height: 40px;
-          letter-spacing: 9.3px;
-          text-align: center;
-        }
-        .content p {
-          padding-right: 0;
-          text-align: center;
-          font-size: 14px;
-          line-height: 21px;
-        }
-        input[type="email"] {
-          width: 100%;
-          padding: 11px 30px;
-          margin: 0;
-          font-size: 14px;
-        }
-        button[type="submit"] {
-          padding: 13px 24px;
-          position: relative;
-          top: -47px;
-          left: 84%;
-        }
-        .hero-image {
-          display: none;
-        }
-        .hero-mobile-image {
-          display: block;
-          width: 100%;
-        }
-      }
-    </style>
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div class="container" id="root"></div>
-    <footer>
-      <p class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
-      </p>
-    </footer>
+    <div class="container d-flex-inline">
+      <div class="logo">
+        <img src="./images/logo.svg" alt="logo" srcset="" />
+      </div>
+    </div>
 
-    <script>
-      const structure = [
-        {
-          tag: "div",
-          attributes: { class: "content-wrapper" },
-          children: [
-            {
-              tag: "header",
-              children: [
-                {
-                  tag: "img",
-                  attributes: {
-                    src: "./images/logo.svg",
-                    alt: "Base Apparel logo",
-                    class: "logo"
-                  }
-                }
-              ]
-            },
-            {
-              tag: "div",
-              attributes: { class: "content" },
-              children: [
-                {
-                  tag: "h1",
-                  children: [
-                    "We're ",
-                    { tag: "span", children: ["coming"] },
-                    { tag: "span", children: ["soon"] }
-                  ]
-                },
-                {
-                  tag: "p",
-                  children: [
-                    "Hello fellow shoppers! We're currently building our new fashion store. Add your email below to stay up-to-date with announcements and our launch deals."
-                  ]
-                },
-                {
-                  tag: "form",
-                  attributes: { id: "subscribe-form" },
-                  children: [
-                    {
-                      tag: "input",
-                      attributes: {
-                        type: "email",
-                        id: "email",
-                        placeholder: "Email Address"
-                      }
-                    },
-                    {
-                      tag: "button",
-                      attributes: { type: "submit" },
-                      children: [
-                        {
-                          tag: "img",
-                          attributes: {
-                            src: "./images/icon-arrow.svg",
-                            alt: "Arrow Icon"
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      tag: "div",
-                      attributes: { class: "invalid-feedback", "aria-live": "polite" },
-                      children: ["Please provide a valid email"]
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          tag: "aside",
-          attributes: { class: "right" },
-          children: [
-            {
-              tag: "img",
-              attributes: {
-                src: "./images/hero-desktop.jpg",
-                alt: "Hero Image",
-                class: "hero-image"
-              }
-            }
-          ]
-        }
-      ];
+    <div class="image-container">
+      <img
+        src="./images/hero-desktop.jpg"
+        class="hero-desktop"
+        alt="hero-desktop"
+        srcset=""
+      />
+      <img
+        src="./images/hero-mobile.jpg"
+        class="hero-mobile"
+        alt="hero-mobile"
+        srcset=""
+      />
+    </div>
 
-      function createElement(node) {
-        if (typeof node === "string") {
-          return document.createTextNode(node);
-        }
-        const el = document.createElement(node.tag);
-        if (node.attributes) {
-          for (let attr in node.attributes) {
-            el.setAttribute(attr, node.attributes[attr]);
-          }
-        }
-        if (node.children) {
-          node.children.forEach(child => {
-            el.appendChild(createElement(child));
-          });
-        }
-        return el;
-      }
+    <div class="container clear-fix">
+      <div class="content">
+        <h1>
+          <span class="text-pink">We're</span><span>Comming</span
+          ><span>Soon</span>
+        </h1>
+        <p>
+          Hello fellow shoppers! We're currently building our new fashion store,
+          Add your email below to stay up-to-date with announcements and our
+          launch deals.
+        </p>
 
-      const root = document.getElementById("root");
-      structure.forEach(node => {
-        root.appendChild(createElement(node));
-      });
-    </script>
+        <form action="#" method="post">
+          <div class="form-group">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email Address"
+            />
+            <img
+              src="./images/icon-error.svg"
+              class="icon-error"
+              alt="icon-error"
+              srcset=""
+            />
+            <button type="button" id="submit">
+              <img src="./images/icon-arrow.svg" alt="icon-arrow" srcset="" />
+            </button>
+          </div>
+          <p class="text-error"></p>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script src="./main.js"></script>
   </body>
 </html>
