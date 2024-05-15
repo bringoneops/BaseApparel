@@ -27,31 +27,30 @@
         <img src="./images/logo.svg" alt="Base Apparel logo" class="logo" />
       </header>
       <main>
-        <img
-          src="./images/hero-mobile.jpg"
-          alt="Hero Image"
-          class="hero-mobile"
-        />
-        <img
-          src="./images/hero-desktop.jpg"
-          alt="Hero Image"
-          class="hero-desktop"
-        />
-        <h1>We're coming soon</h1>
-        <p>
-          Hello fellow shoppers! We're currently building our new fashion store.
-          Add your email below to stay up-to-date with announcements and our
-          launch deals.
-        </p>
-        <form id="subscribe-form">
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email address"
+        <div class="left-section">
+          <h1>
+            We're <br />
+            coming <br />
+            soon
+          </h1>
+          <p>
+            Hello fellow shoppers! We're currently building our new fashion
+            store. Add your email below to stay up-to-date with announcements
+            and our launch deals.
+          </p>
+          <form id="subscribe-form">
+            <input type="email" id="email" placeholder="Email Address" />
+            <button type="submit">Notify Me</button>
+            <p class="error-message" id="error-message"></p>
+          </form>
+        </div>
+        <div class="right-section">
+          <img
+            src="./images/hero-desktop.jpg"
+            alt="Hero Image"
+            class="hero-image"
           />
-          <button type="submit">Notify Me</button>
-          <p class="error-message" id="error-message"></p>
-        </form>
+        </div>
       </main>
       <footer>
         <p class="attribution">
