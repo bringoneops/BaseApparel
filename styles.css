@@ -42,7 +42,8 @@ body::-webkit-scrollbar {
   grid-template-columns: 1fr;
   padding: 4rem 10.2rem;
   gap: 1rem;
-  background: url("images/bg-pattern-desktop.svg"), linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  background: url("images/bg-pattern-desktop.svg"),
+    linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
   background-size: cover;
   justify-content: space-evenly;
 }
