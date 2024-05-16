@@ -10,14 +10,14 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  font-family: var(--body-font);
   -ms-overflow-style: none; /* for Internet Explorer, Edge */
   scrollbar-width: none; /* for Firefox */
   overflow-y: scroll;
-  box-sizing: border-box;
-  font-family: var(--body-font);
 }
 
 body::-webkit-scrollbar {
@@ -30,6 +30,7 @@ body::-webkit-scrollbar {
   min-height: 100vh;
 }
 
+/* Logo */
 .logo {
   height: 2.3rem;
   max-width: 100%;
@@ -52,7 +53,6 @@ h1 {
   font-size: 4rem;
   text-transform: uppercase;
   font-weight: 600;
-  display: inline;
   color: var(--dark-grayish-red);
   letter-spacing: 1.1rem;
   line-height: 4.2rem;
@@ -64,16 +64,17 @@ h1 span {
 }
 
 .info-section p {
-  position: relative;
   color: var(--desaturated-red);
   line-height: 1.8rem;
   font-weight: 400;
   width: 85%;
   padding-top: 1.2rem;
 }
+
 .text-section {
   max-width: 550px;
 }
+
 /* Input Section */
 .input-section {
   position: relative;
@@ -91,10 +92,10 @@ h1 span {
   border-radius: 25px;
   width: 100%;
   padding: 1.7rem;
-  overflow: hidden;
   background-color: transparent;
   font-family: var(--body-font);
 }
+
 .input-field::placeholder {
   font-family: var(--body-font);
 }
@@ -141,6 +142,7 @@ h1 span {
   height: 3.5rem;
   right: 25%;
 }
+
 .error-icon {
   background-image: url("images/icon-error.svg");
   background-repeat: no-repeat;
@@ -158,6 +160,7 @@ h1 span {
   width: 100%;
 }
 
+/* Hover Effect for Button */
 @media (hover: hover) {
   .btn:hover {
     -webkit-box-shadow: -1px 16px 17px -6px rgba(0, 0, 0, 0.51);
@@ -166,6 +169,7 @@ h1 span {
   }
 }
 
+/* Responsive Design for Different Screen Sizes */
 @media screen and (max-width: 1025px) {
   .main-container {
     grid-template-columns: 50% 1fr;
@@ -173,36 +177,59 @@ h1 span {
 }
 
 @media screen and (max-width: 900px) {
-  .info-section {
-    display: initial;
-  }
-
   .main-container {
     grid-template-columns: 1fr;
-    grid-template-rows: 15% 50% 1fr;
-    grid-template-areas:
-      "icon"
-      "hero"
-      "info";
+    grid-template-rows: auto 1fr;
   }
 
-  .img-section {
-    grid-area: hero;
+  .info-section {
+    padding: 5rem 2rem;
   }
 
   .logo {
     position: absolute;
-    grid-area: icon;
     top: 5%;
     left: 5%;
   }
 
-  .info-section {
-    grid-area: info;
-    position: initial;
-    padding: 5rem 2rem;
-  }
   h1 {
     font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+    line-height: 3rem;
+  }
+
+  .input-section {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .input-field {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    position: static;
+    height: 3rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .main-container {
+    padding: 1rem;
+  }
+
+  .info-section {
+    padding: 2rem 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .input-section {
+    margin-top: 1.5rem;
   }
 }
